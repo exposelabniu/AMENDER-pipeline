@@ -1,5 +1,0 @@
-chi1 (ruby -c):
-Syntax OK
-
-chi2 (msftidy):
-Command '['ruby', '/usr/share/metasploit-framework/tools/dev/msftidy.rb', '/home/rezwan/openemr-lab/modules/openemr_cve_2026_24849_file_read.rb']' timed out after 30 seconds
