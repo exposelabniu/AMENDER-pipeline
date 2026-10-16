@@ -1,0 +1,28 @@
+{
+  "cve":               "CVE-2026-24849",
+  "edb":               "52610",
+  "module_type":       "auxiliary",
+  "name":              "OpenEMR prior to 7.0.4 Authenticated Arbitrary File Read",
+  "description":       "Exploits an authenticated arbitrary file read in OpenEMR < 7.0.4 (CVE-2026-24849). The FaxSMS module's EtherFaxActions disposeDocument action passes file_path directly to file_get_contents() without sanitisation, letting any authenticated user read arbitrary server-side files.",
+  "author":            "AMENDER / Rezwanul Haque",
+  "disclosure_date":   "2026-01-15",
+  "references": [
+    ["CVE",  "2026-24849"],
+    ["EDB",  "52610"]
+  ],
+  "default_username":  "admin",
+  "default_password":  "",
+  "default_site":      "default",
+  "default_filepath":  "/etc/passwd",
+  "target_uri":        "/",
+  "faxsms_path":       "interface/modules/custom_modules/oe-module-faxsms/index.php",
+  "faxsms_actions":    ["disposeDocument", "disposeDoc"],
+  "fail_marker":       "login_screen.php?error=1",
+  "service_not_found": ["service is not found", "install or turn service on"],
+  "login_path":        "interface/main/main_screen.php",
+  "login_params": {
+    "new_login_session_management": "1",
+    "authProvider":                 "Default",
+    "languageChoice":               "1"
+  }
+}

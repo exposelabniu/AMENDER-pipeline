@@ -1,129 +1,126 @@
-# AMENDER: AI-Assisted Metasploit Exploit Module Synthesis via Disclosure-Aware Extraction and Analyst-in-the-Loop Review for OpenEMR
+# AMENDER: Automated Metasploit Module ENgineering and Diagnostic Exploit Runner
 
-## About
+A semi-automated pipeline for CVE verification and Metasploit module synthesis, built as part of PhD research in vulnerability automation at Northern Illinois University.
 
-This repository contains the implementation and experimental artifacts for AMENDER, a pipeline that automates the synthesis of functional Metasploit exploit modules from publicly available vulnerability disclosures.
+## What This Does
 
-AMENDER targets two real-world vulnerabilities in OpenEMR, a widely deployed open-source electronic health records system: CVE-2026-24849 (CVSS 9.9, arbitrary file read/write via a fax document disposal endpoint) and CVE-2026-33305 (CVSS 5.4, authorization bypass via credential injection in the setup controller). Starting from CVE/NVD advisories, patch diffs, and source code, the pipeline uses a large language model (LLM) to iteratively draft, critique, and refine Ruby exploit modules across four structured phases and 13 analyst-guided synthesis steps. Each candidate module is validated through three conformance gates: Ruby syntax check, msftidy style compliance, and live functional testing against a Dockerized OpenEMR instance.
+AMENDER takes a CVE ID and an Exploit-DB reference, then runs a 7-stage agentic pipeline to:
 
-The repository includes the synthesized Metasploit modules, Python proof-of-concept scripts, the Docker-based lab environment, and evaluation logs from all 13 pipeline iterations. This work is submitted to ICCFN 2026 and is currently under blind review.
+1. **M1** — Run a PoC exploit against a local lab target and confirm the vulnerability is live
+2. **M3** — If the PoC fails, diagnose and repair it automatically (up to N iterations)
+3. **M4** — Synthesize a Metasploit auxiliary/exploit module from the confirmed PoC
+4. **M5** — Validate and correct the generated module (syntax, msftidy, live test)
+5. **M7** — Update the dashboard with results
 
-Companion paper: "AMENDER: AI-Assisted Metasploit Exploit Module Synthesis via Disclosure-Aware Extraction and Analyst-in-the-Loop Review for OpenEMR" (submitted to ICCFN 2026, under blind review)
+All pipeline runs are logged to `logs/training/amender.jsonl` for reproducibility and analysis.
 
-## Repository Structure
+## CVEs Covered
+
+| CVE | Class | Target | Status |
+|-----|-------|--------|--------|
+| CVE-2018-15142 | File Read | OpenEMR 5.0.1.3 (port 8082) | CONFIRMED |
+| CVE-2018-15139 | RCE / Upload | OpenEMR 5.0.1.3 (port 8082) | CONFIRMED |
+| CVE-2026-24849 | File Read | OpenEMR 7.0.2 (port 8080) | CONFIRMED |
+| CVE-2018-15149 | SQL Injection | OpenEMR 5.0.1.3 (port 8082) | In Progress |
+
+## Repository Layout
 
 ```
-AMENDER-2026/
-|-- data/
-| +-- cve/
-| |-- research_log_session2.md
-| +-- cve_2026_24849_access_matrix.md
-|-- docker/
-| +-- docker-compose.yml
-|-- logs/
-| |-- llm/
-| | |-- cve_2026_24849_faxsms_file_read.rb
-| | |-- cve_2026_24849_rcfax_dispose.rb
-| | |-- cve_2026_33305_save_setup.rb
-| | |-- cve_2026_24849_file_read.py
-| | |-- cve_2026_24849_original_poc.py
-| | +-- cve_2026_33305_save_setup.py
-| +-- conformance/
-|-- results/
-| +-- evaluation/
-| +-- evaluation_summary.md
-+-- src/
-|-- modules/
-| |-- cve_2026_24849_faxsms_file_read.rb
-| |-- cve_2026_24849_rcfax_dispose.rb
-| +-- cve_2026_33305_save_setup.rb
-|-- poc/
-| |-- cve_2026_24849_original_poc.py
-| |-- cve_2026_24849_file_read.py
-| +-- cve_2026_33305_save_setup.py
-|-- openemr_cve_analysis.py <- NVD API script; produces Fig. 1
-+-- README.md <- usage for openemr_cve_analysis.py
+openemr-amender/
+├── src/                        # Pipeline source code
+│   ├── run_poc.py              # M1: language-agnostic PoC runner
+│   ├── correct_poc.py          # M3: LLM-driven PoC correction loop
+│   ├── generate_module.py      # M4: Metasploit module synthesis
+│   ├── correct_module.py       # M5: module validation and correction
+│   ├── dashboard.py            # M7: HTML dashboard generator
+│   ├── fetch_poc.py            # EDB PoC downloader
+│   ├── logger.py               # Shared JSONL logger
+│   └── amender.py              # Pipeline orchestrator
+│
+├── data/
+│   ├── *.json                  # CVE config files (one per CVE)
+│   ├── pocs/                   # Synthesized / adapted PoC scripts
+│   └── cve/                    # Research notes and access matrices
+│
+├── modules/
+│   └── auxiliary/admin/http/   # Generated Metasploit modules
+│       ├── openemr_cve_2018_15139_exploit.rb
+│       ├── openemr_cve_2018_15142_file_read.rb
+│       ├── openemr_cve_2018_15149_sqli.rb
+│       └── openemr_cve_2026_24849_file_read.rb
+│
+├── docker/
+│   └── docker-compose.yml      # Lab environment (OpenEMR 5.0.1.3 + 7.0.2)
+│
+├── logs/
+│   ├── training/amender.jsonl  # Full pipeline run log (all CVEs, all stages)
+│   └── dashboard.html          # Auto-generated visual dashboard
+│
+├── results/
+│   └── evaluation/             # Evaluation summaries
+│
+└── .claude/commands/amender.md # Claude Code /amender slash command definition
 ```
 
-## CVE Enumeration Script (Figure 1)
+## Reproducing the Lab
 
-`src/openemr_cve_analysis.py` queries the NVD REST API v2.0 to enumerate all OpenEMR CVEs, computes annual CVSS statistics, and cross-references existing Metasploit coverage. The bar chart in Figure 1 of the companion paper was generated using this script.
-
-See [`src/README.md`](src/README.md) for usage instructions and output format.
-
-## Vulnerabilities Covered
-
-| CVE | CVSS | Description |
-|-----|------|-------------|
-| CVE-2026-24849 | 9.9 Critical | Arbitrary file read/write via `disposeDocument()` in EtherFaxActions |
-| CVE-2026-33305 | 5.4 Medium | Authorization bypass; AppDispatch dispatches actions before ACL checks |
-
-## Prerequisites
+### Prerequisites
 
 - Docker and Docker Compose
-- Metasploit Framework (msfconsole)
-- Python 3 with requests library
+- Python 3.10+
+- Metasploit Framework (`msfconsole`, `msftidy`)
+- Claude CLI (`claude`) with API access
 
-## Step 1 - Start the Lab Environment
-
-```bash
-cd docker/
-docker-compose up -d
-```
-
-This starts OpenEMR 7.0.2 on http://localhost:8080. Default credentials: admin / pass. Wait ~30 seconds before running any modules.
-
-## Step 2 - Copy Metasploit Modules
+### 1. Start the OpenEMR lab
 
 ```bash
-cp src/modules/cve_2026_24849_faxsms_file_read.rb ~/.msf4/modules/auxiliary/gather/
-cp src/modules/cve_2026_24849_rcfax_dispose.rb     ~/.msf4/modules/auxiliary/gather/
-cp src/modules/cve_2026_33305_save_setup.rb        ~/.msf4/modules/auxiliary/gather/
+cd docker
+docker compose up -d
+# OpenEMR 7.0.2  → http://localhost:8080  (admin / admin)
+# OpenEMR 5.0.1.3 → http://localhost:8082  (admin / admin)
 ```
 
-## Step 3 - Run CVE-2026-24849 Module (File Read)
+### 2. Install Python dependencies
 
 ```bash
-msfconsole -q
-msf > reload_all
-msf > use auxiliary/gather/cve_2026_24849_faxsms_file_read
-msf > set RHOSTS 127.0.0.1
-msf > set RPORT 8300
-msf > set USERNAME admin
-msf > set PASSWORD pass
-msf > set TARGETFILE /etc/passwd
-msf > run
+pip install -r requirements.txt
 ```
 
-Expected: contents of /etc/passwd returned in module output.
+### 3. Run the pipeline against a CVE
 
-## Step 4 - Run CVE-2026-33305 Module (Credential Injection)
+Using the Claude Code `/amender` slash command (from inside the project directory):
+
+```
+/amender CVE-2018-15142 --target http://localhost:8082 --user admin --password admin
+```
+
+Or run stages manually:
 
 ```bash
-msf > use auxiliary/gather/cve_2026_33305_save_setup
-msf > set RHOSTS 127.0.0.1
-msf > set RPORT 8300
-msf > set USERNAME admin
-msf > set PASSWORD pass
-msf > run
+# M1: Run the PoC
+python3 src/run_poc.py \
+  --poc data/pocs/45202.py \
+  --cve CVE-2018-15142 \
+  --target http://localhost:8082 \
+  --user admin --password admin
+
+# M7: Regenerate the dashboard
+python3 src/dashboard.py
+# Open logs/dashboard.html in a browser
 ```
 
-Expected: vendor credentials overwritten; module confirms write success.
+### 4. View results
 
-## Step 5 - Verify with Python PoC (optional)
+Open `logs/dashboard.html` in any browser. It reads from `logs/training/amender.jsonl` and shows one collapsible card per CVE with full iteration history.
 
-```bash
-python3 src/poc/cve_2026_24849_file_read.py
-```
+## Security Note
 
-## Stopping the Lab
+This repository targets a **local Docker lab only**. The pipeline enforces this:
 
-```bash
-docker-compose down
-```
+- Targets must be `localhost`, `127.0.0.1`, or an RFC-1918 address
+- Synthesized PoCs implement read/confirm paths only — no write, delete, or code-execution payloads
+- Credentials never written to files; passed via `AMENDER_PASSWORD` env var or `--password` flag
 
-## Notes
+## Research Context
 
-- All modules were synthesised by the AMENDER pipeline and validated against the lab environment described in the paper (Section 4).
-- Conformance gates passed: X1 Ruby syntax, X2 msftidy, X3 live functional.
-- Author identity withheld for blind review.
+This project is part of ongoing PhD research on semi-automated vulnerability verification pipelines at NIU. The JSONL log (`logs/training/amender.jsonl`) captures per-stage inputs, outputs, LLM diagnoses, and corrections — intended as a training dataset for future work on automated exploit module generation.

